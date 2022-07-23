@@ -1,0 +1,51 @@
+@use '/src/styles/constants/colors';
+
+.gnbContainer {
+  position: absolute;
+  bottom: 0;
+  gap: 65px;
+  width: 375px;
+  height: 85px;
+  padding: 20px 80px;
+  background-color: colors.$PRIMARY;
+  border-radius: 30px;
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+
+    li {
+      text-align: center;
+
+      .nav {
+        cursor: pointer;
+      }
+
+      .activeNav {
+        cursor: pointer;
+
+        rect {
+          stroke: colors.$TEXT_WHITE;
+        }
+
+        path {
+          fill: colors.$TEXT_WHITE;
+          stroke: colors.$TEXT_WHITE;
+        }
+
+        div {
+          color: colors.$TEXT_WHITE;
+        }
+      }
+
+      div {
+        margin-top: 8px;
+        font-size: 10px;
+        line-height: 12px;
+        color: colors.$TEXT_SECONDARY;
+      }
+    }
+  }
+}
