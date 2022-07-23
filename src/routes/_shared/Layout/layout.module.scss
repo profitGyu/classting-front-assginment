@@ -11,7 +11,7 @@
 
   .main {
     width: 375px;
-    height: 100%;
+    height: calc(100vh - 135px);
     margin: 0 auto;
     background: colors.$WHITE_BACKGROUND;
   }

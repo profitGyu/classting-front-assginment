@@ -1,0 +1,42 @@
+@use '/src/styles/constants/colors';
+
+.quizStartContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+
+  h1 {
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 100px;
+    color: colors.$PRIMARY;
+  }
+
+  label {
+    font-size: 20px;
+  }
+
+  .nameFrom {
+    width: 320px;
+
+    .nameInputWrapper {
+      width: 320px;
+      height: 50px;
+      padding: 5px 10px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border: solid 1px colors.$TEXT_SECONDARY;
+      border-radius: 5px;
+
+      input {
+        width: 100%;
+        height: 100%;
+        font-size: 20px;
+      }
+    }
+  }
+}

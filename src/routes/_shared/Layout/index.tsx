@@ -1,8 +1,8 @@
 import styles from './layout.module.scss'
 
 import { Outlet } from 'react-router-dom'
-import GNB from './GNB'
-import Header from './header'
+import GNB from '../GNB'
+import Header from '../header'
 
 const Layout = () => {
   return (

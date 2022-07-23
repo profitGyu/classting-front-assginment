@@ -9,4 +9,12 @@
   padding: 20px;
   color: colors.$TEXT_PRIMARY;
   background-color: colors.$HEADER_BACKGROUND;
+
+  ul {
+    display: flex;
+
+    li {
+      margin-left: 8px;
+    }
+  }
 }
