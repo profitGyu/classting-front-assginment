@@ -1,6 +1,7 @@
 import styles from './quizStartPage.module.scss'
 
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react'
+import { useMount } from 'react-use'
 import store from 'storejs'
 
 import { useRecoilState } from 'recoil'
@@ -11,6 +12,11 @@ import Button from 'components/Button'
 const QuizStartPage = () => {
   const [value, setValue] = useState('')
   const [user, setUser] = useRecoilState(userState)
+  const nameRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    nameRef.current?.focus()
+  }, [user])
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -29,7 +35,7 @@ const QuizStartPage = () => {
         <label htmlFor='name'>닉네임을 입력해 주세요</label>
         <form className={styles.nameFrom} onSubmit={handleSubmit}>
           <div className={styles.nameInputWrapper}>
-            <input id='name' type='text' onChange={handleChange} value={value} />
+            <input id='name' type='text' onChange={handleChange} value={value} ref={nameRef} />
           </div>
           <Button size='extraLarge' type='submit' primary>
             입력
