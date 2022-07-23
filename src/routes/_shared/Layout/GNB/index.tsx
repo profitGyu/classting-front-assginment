@@ -11,12 +11,12 @@ const GNB_LIST = [
   {
     value: 'quiz',
     src: <QuizIcon />,
-    text: '스크랩',
+    text: '퀴즈',
   },
 ]
 const GNB = () => {
   return (
-    <div className={styles.gnbContainer}>
+    <nav className={styles.gnbContainer}>
       <ul>
         {GNB_LIST.map((item) => (
           <li key={item.value}>
@@ -27,7 +27,7 @@ const GNB = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   )
 }
 
