@@ -55,9 +55,7 @@ const QuizGame = ({ quiz }: props) => {
           </Button>
         )
       })}
-      <Portal>
-        {isModalOpen && <Modal check={isTrue} setIsOpenPopup={setIsModalOpen} setPage={setPage} quiz={quiz[page]} />}
-      </Portal>
+      <Portal>{isModalOpen && <Modal check={isTrue} setIsOpenPopup={setIsModalOpen} setPage={setPage} />}</Portal>
     </div>
   )
 }

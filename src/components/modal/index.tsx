@@ -1,16 +1,15 @@
 import styles from './modal.module.scss'
 
 import Button from 'components/Button'
-import { IQuizResult } from 'types/quiz'
 
 interface Props {
   setIsOpenPopup: Function
   setPage: Function
-  quiz?: IQuizResult
+  // quiz?: IQuizResult
   check: boolean
 }
 
-const Modal = ({ setIsOpenPopup, setPage, check, quiz }: Props) => {
+const Modal = ({ setIsOpenPopup, setPage, check }: Props) => {
   const handleCloseButtonClick = () => {
     setIsOpenPopup(false)
     setPage((prev: number) => prev + 1)
