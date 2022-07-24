@@ -17,7 +17,7 @@ const Header = () => {
     return (
       <HeaderContainer>
         <ul>
-          <li>{user}님</li>
+          <li>{user.name}님</li>
           <li>
             <button type='button' onClick={handleOutClick}>
               나가기
