@@ -6,7 +6,7 @@ const BASE_URL = `https://opentdb.com`
 export interface IQuizProps {
   category: number
   difficulty: string
-  token: string
+  token?: string
 }
 
 const quizSessionRep = () => {

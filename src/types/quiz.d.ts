@@ -1,9 +1,9 @@
 export interface IQuizRep {
   response_code: number
-  results: Result[]
+  results: IQuizResult[]
 }
 
-export interface Result {
+export interface IQuizResult {
   category: string
   type: string
   difficulty: string
@@ -21,5 +21,5 @@ export interface IQuizSessionRep {
 export interface IQuizProps {
   category: number
   difficulty: string
-  token: string
+  token?: string
 }

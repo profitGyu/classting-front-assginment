@@ -3,29 +3,29 @@ import { useClickAway } from 'react-use'
 import styles from './modal.module.scss'
 
 import Button from 'components/Button'
+import { IQuizResult } from 'types/quiz'
 
 interface Props {
   setIsOpenPopup: Function
-  text: string
+  setPage: Function
+  quiz: IQuizResult
+  check: boolean
 }
 
-const Modal = ({ setIsOpenPopup, text }: Props) => {
+const Modal = ({ setIsOpenPopup, setPage, check, quiz }: Props) => {
   const outsideRef = useRef<HTMLInputElement>(null)
 
   const handleCloseButtonClick = () => {
     setIsOpenPopup(false)
+    setPage((prev: number) => prev + 1)
   }
-
-  useClickAway(outsideRef, () => {
-    setIsOpenPopup(false)
-  })
 
   return (
     <div className={styles.backdrop}>
       <div className={styles.modalBox} ref={outsideRef}>
-        <p>{text}</p>
-        <Button size='small' onClick={handleCloseButtonClick} primary>
-          확인
+        <span>{check ? '정답 입니다!' : '오답 입니다!'}</span>
+        <Button size='extraLarge' onClick={handleCloseButtonClick} primary>
+          다음문제 풀기
         </Button>
       </div>
     </div>

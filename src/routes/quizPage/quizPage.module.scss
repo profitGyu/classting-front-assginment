@@ -1,0 +1,44 @@
+@use '/src/styles/constants/colors';
+
+.quizContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  animation: slideUp 7s;
+
+  h2 {
+    margin-bottom: 32px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  button {
+    margin-bottom: 5px;
+    animation: slideUp 7s;
+  }
+
+  .questionContainer {
+    display: flex;
+    align-items: center;
+    width: 320px;
+    height: 200px;
+    padding: 20px;
+    padding: 5px 4px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    background: #0ebfea;
+    border-radius: 5px;
+
+    .questionWrapper {
+      height: 180px;
+      padding: 40px 30px 10px;
+      overflow: scroll;
+      background: colors.$WHITE_BACKGROUND;
+      border-radius: 5px;
+    }
+  }
+}

@@ -9,7 +9,7 @@ const GNB_LIST = [
     text: '홈',
   },
   {
-    value: 'quiz',
+    value: 'scrap',
     src: <QuizIcon />,
     text: '스크랩',
   },
