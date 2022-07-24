@@ -16,6 +16,13 @@
     color: colors.$PRIMARY;
   }
 
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 100px;
+    color: colors.$TEXT_PRIMARY;
+  }
+
   label {
     font-size: 20px;
   }
@@ -38,5 +45,12 @@
         font-size: 20px;
       }
     }
+  }
+
+  .difficultyWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 20px;
   }
 }

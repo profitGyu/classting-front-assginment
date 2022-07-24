@@ -31,4 +31,21 @@
     border: solid 1px colors.$PRIMARY;
     border-radius: 5px;
   }
+
+  &.rectangle {
+    height: 120px;
+    font-size: 18px;
+    font-weight: 500;
+    color: colors.$WHITE;
+
+    &:hover {
+      transition: 0.2s;
+      transform: scale(1.1);
+    }
+
+    &:active {
+      color: colors.$ACTIVE;
+      border: solid 2px colors.$ACTIVE;
+    }
+  }
 }

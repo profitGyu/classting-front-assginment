@@ -17,3 +17,9 @@ export interface IQuizSessionRep {
   response_message: string
   token: string
 }
+
+export interface IQuizProps {
+  category: number
+  difficulty: string
+  token: string
+}

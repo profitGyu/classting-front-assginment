@@ -11,7 +11,7 @@ const GNB_LIST = [
   {
     value: 'quiz',
     src: <QuizIcon />,
-    text: '퀴즈',
+    text: '스크랩',
   },
 ]
 const GNB = () => {

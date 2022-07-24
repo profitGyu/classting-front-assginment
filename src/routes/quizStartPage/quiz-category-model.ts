@@ -24,14 +24,6 @@ const QUIZ_CATEGORY_LIST = [
     name: 'Entertainment: Television',
   },
   {
-    value: 15,
-    name: 'Entertainment: Video Games',
-  },
-  {
-    value: 16,
-    name: 'Entertainment: Board Games',
-  },
-  {
     value: 17,
     name: 'Science & Nature',
   },
@@ -79,43 +71,31 @@ const QUIZ_CATEGORY_LIST = [
     value: 28,
     name: 'Vehicles',
   },
-  {
-    value: 29,
-    name: 'Entertainment: Comics',
-  },
-  {
-    value: 30,
-    name: 'Science: Gadgets',
-  },
-  {
-    value: 31,
-    name: 'Entertainment: Japanese Anime & Manga',
-  },
-  {
-    value: 32,
-    name: 'Entertainment: Cartoon & Animations',
-  },
 ]
 
 const QUIZ_DIFFICULTY_LIST = [
   {
     text: 'Any Difficulty',
     value: '',
+    color: '#00C896',
     id: 'quiz-difficulty-1',
   },
   {
     text: 'Easy',
     value: 'easy',
+    color: '#DFEA87',
     id: 'quiz-difficulty-2',
   },
   {
     text: 'Medium',
     value: 'medium',
+    color: '#A7B253',
     id: 'quiz-difficulty-3',
   },
   {
     text: 'Hard',
     value: 'hard',
+    color: '#707E1F',
     id: 'quiz-difficulty-4',
   },
 ]
