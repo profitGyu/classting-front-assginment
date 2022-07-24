@@ -16,7 +16,7 @@
     position: relative;
     flex-direction: column;
     justify-content: space-between;
-    width: 400px;
+    width: 355px;
     height: 300px;
     padding: 60px 50px;
     background-color: colors.$WHITE;
@@ -27,11 +27,6 @@
       padding: 10px 20px;
       background-color: colors.$PRIMARY;
       border-radius: 10px;
-    }
-
-    * {
-      font-weight: 600;
-      color: colors.$PRIMARY;
     }
   }
 }

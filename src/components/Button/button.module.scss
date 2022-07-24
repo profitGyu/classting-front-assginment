@@ -11,15 +11,15 @@
   opacity: 1;
   transition: opacity 0.3s;
 
+  &:hover {
+    color: colors.$WHITE;
+    background: colors.$PRIMARY;
+    transition: 0.6;
+  }
+
   &.primary {
     color: colors.$WHITE;
     background-color: colors.$PRIMARY;
-
-    &:hover {
-      color: colors.$WHITE;
-      background: colors.$PRIMARY;
-      transition: 0.6;
-    }
   }
 
   &.extraLarge {

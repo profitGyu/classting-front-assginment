@@ -19,7 +19,7 @@ const QuizChoice = () => {
   const handleChoiceSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const difficulty = e.currentTarget.dataset.value
-    navigate(`../quiz`, { state: { category, difficulty }, replace: false })
+    navigate(`../quiz`, { state: { category: category.value, difficulty }, replace: false })
   }
 
   return (
