@@ -16,7 +16,7 @@ const GNB_LIST = [
 ]
 const GNB = () => {
   return (
-    <div className={styles.gnbContainer}>
+    <nav className={styles.gnbContainer}>
       <ul>
         {GNB_LIST.map((item) => (
           <li key={item.value}>
@@ -27,7 +27,7 @@ const GNB = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   )
 }
 

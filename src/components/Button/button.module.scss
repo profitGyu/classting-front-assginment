@@ -17,24 +17,35 @@
 
     &:hover {
       color: colors.$WHITE;
-      background: colors.$ERROR;
+      background: colors.$PRIMARY;
       transition: 0.6;
     }
   }
 
   &.extraLarge {
     width: 320px;
-    height: 42px;
+    height: 52px;
     padding: 12px 0;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 500;
     border: solid 1px colors.$PRIMARY;
-    border-radius: 0;
+    border-radius: 5px;
+  }
 
-    @include responsive.after(SD) {
-      width: 546px;
-      height: 62px;
-      font-size: 18px;
+  &.rectangle {
+    height: 120px;
+    font-size: 18px;
+    font-weight: 500;
+    color: colors.$WHITE;
+
+    &:hover {
+      transition: 0.2s;
+      transform: scale(1.1);
+    }
+
+    &:active {
+      color: colors.$ACTIVE;
+      border: solid 2px colors.$ACTIVE;
     }
   }
 }
