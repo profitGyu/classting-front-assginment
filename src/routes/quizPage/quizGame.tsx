@@ -8,8 +8,6 @@ import Button from 'components/Button'
 import Portal from 'components/modal/Portal'
 import { shuffle } from 'lodash'
 import Modal from 'components/modal'
-import { useSetRecoilState } from 'recoil'
-import { OngoingState } from 'state/quiz'
 
 interface props {
   quiz: IQuizResult[]

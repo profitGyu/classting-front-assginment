@@ -1,5 +1,3 @@
-import styles from './quizPage.module.scss'
-
 import { useLayoutEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { IQuizProps, IQuizResult } from 'types/quiz'
@@ -9,7 +7,6 @@ import { quizApiRep, quizSessionRep } from 'service/quiz'
 import store from 'storejs'
 import QuizGame from './quizGame'
 import Spinner from 'components/Spinner'
-import { OngoingState } from 'state/quiz'
 
 const QuizPage = () => {
   const state = useLocation()
