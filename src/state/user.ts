@@ -9,5 +9,5 @@ interface IUserProps {
 
 export const userState = atom<IUserProps>({
   key: '#userState',
-  default: { name: '', token: '' } || store.get('user'),
+  default: store.get('user') ? store.get('user') : { name: '', token: '' },
 })

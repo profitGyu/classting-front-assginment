@@ -1,5 +1,9 @@
 const QUIZ_CATEGORY_LIST = [
   {
+    value: 0,
+    name: 'Any Category',
+  },
+  {
     value: 9,
     name: 'General Knowledge',
   },

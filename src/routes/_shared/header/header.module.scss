@@ -10,6 +10,10 @@
   color: colors.$TEXT_PRIMARY;
   background-color: colors.$HEADER_BACKGROUND;
 
+  a {
+    cursor: pointer;
+  }
+
   ul {
     display: flex;
 

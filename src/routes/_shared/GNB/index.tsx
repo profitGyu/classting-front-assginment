@@ -9,9 +9,9 @@ const GNB_LIST = [
     text: '홈',
   },
   {
-    value: 'scrap',
+    value: 'wnote',
     src: <QuizIcon />,
-    text: '스크랩',
+    text: '오답노트',
   },
 ]
 const GNB = () => {

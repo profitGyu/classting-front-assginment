@@ -7,5 +7,5 @@ interface ICategoryProps {
 
 export const CategoryInputState = atom<ICategoryProps>({
   key: '#CategoryInputState',
-  default: { name: 'Any Category', value: '전체' },
+  default: { name: 'Any Category', value: '0' },
 })

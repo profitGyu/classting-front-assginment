@@ -22,11 +22,5 @@
     background-color: colors.$WHITE;
     border-radius: 20px;
     animation: slideUp 0.4s cubic-bezier(0.5, 0, 0, 0.8) forwards;
-
-    button {
-      padding: 10px 20px;
-      background-color: colors.$PRIMARY;
-      border-radius: 10px;
-    }
   }
 }
