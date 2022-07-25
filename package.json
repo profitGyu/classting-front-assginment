@@ -74,6 +74,7 @@
     "postcss-scss": "^4.0.4",
     "prettier": "^2.6.2",
     "prop-types": "^15.8.1",
+    "react-test-render": "^1.1.2",
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",

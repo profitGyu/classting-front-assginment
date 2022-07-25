@@ -5,11 +5,11 @@ import { useSetRecoilState } from 'recoil'
 import { wrongAnswerListState } from 'state/quiz'
 import store from 'storejs'
 import { IQuizResult } from 'types/quiz'
-import { memo } from 'react'
+import { Dispatch, memo, SetStateAction } from 'react'
 
 interface Props {
-  setIsOpenPopup: Function
-  setPage: Function
+  setIsOpenPopup: Dispatch<SetStateAction<boolean>>
+  setPage: Dispatch<SetStateAction<number>>
   quiz: IQuizResult
   check: boolean
 }
@@ -18,8 +18,6 @@ const QuizModal = ({ setIsOpenPopup, setPage, check, quiz }: Props) => {
   const setWrongAnswerList = useSetRecoilState(wrongAnswerListState)
 
   const handleCloseButtonClick = () => {
-    setIsOpenPopup(false)
-    setPage((prev: number) => prev + 1)
     if (!check) {
       setWrongAnswerList((pre) => {
         if ([...pre].find((item) => quiz === item)) {
@@ -30,6 +28,8 @@ const QuizModal = ({ setIsOpenPopup, setPage, check, quiz }: Props) => {
         return [...pre, quiz]
       })
     }
+    setIsOpenPopup(false)
+    setPage((prev: number) => prev + 1)
   }
 
   return (
