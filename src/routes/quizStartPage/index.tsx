@@ -7,7 +7,7 @@ import QuizChoice from './quizChoice'
 const QuizStartPage = () => {
   const user = useRecoilValue(userState)
 
-  if (!user) return <QuizBefore />
+  if (!user.name) return <QuizBefore />
   return <QuizChoice />
 }
 export default QuizStartPage

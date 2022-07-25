@@ -1,13 +1,15 @@
 import styles from './quizPage.module.scss'
 
-import { useMemo, useState, MouseEvent } from 'react'
+import { useMemo, useState, MouseEvent, useEffect } from 'react'
 
 import { IQuizResult } from 'types/quiz'
 
 import Button from 'components/Button'
-import Portal from 'components/modal/Portal'
-import { shuffle } from 'lodash'
-import Modal from 'components/modal'
+import Portal from 'routes/quizPage/modal/Portal'
+
+import QuizModal from 'routes/quizPage/modal'
+import QuizResult from './quizResult'
+import { shuffle, unescapeHtml } from 'utils'
 
 interface props {
   quiz: IQuizResult[]
@@ -18,15 +20,36 @@ const QuizGame = ({ quiz }: props) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isTrue, setIsTrue] = useState(true)
   const [rightCount, setRightCount] = useState(0)
+  const [count, setCount] = useState(0)
+
+  const question = useMemo(() => {
+    if (quiz[page]) {
+      return unescapeHtml(quiz[page].question)
+    }
+    return []
+  }, [page, quiz])
 
   const answerList = useMemo(() => {
     if (quiz[page]) {
-      const incorrect = quiz[page].incorrect_answers
-      const correct = quiz[page].correct_answer
+      const incorrect = quiz[page].incorrect_answers.map((item) => unescapeHtml(item))
+      const correct = unescapeHtml(quiz[page].correct_answer)
       return shuffle([...incorrect, correct])
     }
     return []
   }, [page, quiz])
+
+  useEffect(() => {
+    if (page === 0) {
+      setCount(0)
+    }
+    const counterInterval = setInterval(() => {
+      setCount(count + 1)
+    }, 1000)
+    if (quiz.length === page + 1) {
+      clearInterval(counterInterval)
+    }
+    return () => clearInterval(counterInterval)
+  }, [count, page, quiz.length])
 
   const handleCheckResult = (e: MouseEvent<HTMLButtonElement>) => {
     if (e.currentTarget.dataset.value === quiz[page].correct_answer) {
@@ -34,10 +57,18 @@ const QuizGame = ({ quiz }: props) => {
     }
     setIsTrue(e.currentTarget.dataset.value === quiz[page].correct_answer)
     setIsModalOpen((prev) => !prev)
-    // setPage((prev) => prev + 1)
   }
 
-  if (quiz.length === page + 1) return <div>{rightCount}맞춤</div>
+  if (quiz.length === page + 1)
+    return (
+      <QuizResult
+        count={count}
+        totalCount={quiz.length}
+        rightCount={rightCount}
+        setPage={setPage}
+        setRightCount={setRightCount}
+      />
+    )
 
   return (
     <div className={styles.quizContainer}>
@@ -45,7 +76,7 @@ const QuizGame = ({ quiz }: props) => {
         Question {page + 1} of {quiz.length}
       </h2>
       <section className={styles.questionContainer}>
-        <div className={styles.questionWrapper}>{quiz[page].question}</div>
+        <div className={styles.questionWrapper}>{question}</div>
       </section>
       {answerList.map((item, index) => {
         const answerKey = `answer-${index}-key`
@@ -55,7 +86,11 @@ const QuizGame = ({ quiz }: props) => {
           </Button>
         )
       })}
-      <Portal>{isModalOpen && <Modal check={isTrue} setIsOpenPopup={setIsModalOpen} setPage={setPage} />}</Portal>
+      <Portal>
+        {isModalOpen && (
+          <QuizModal check={isTrue} setIsOpenPopup={setIsModalOpen} setPage={setPage} quiz={quiz[page]} />
+        )}
+      </Portal>
     </div>
   )
 }

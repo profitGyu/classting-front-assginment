@@ -10,6 +10,10 @@
   background-color: colors.$PRIMARY;
   border-radius: 30px;
 
+  a {
+    cursor: pointer;
+  }
+
   ul {
     display: flex;
     align-items: center;

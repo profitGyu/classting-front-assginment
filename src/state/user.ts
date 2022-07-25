@@ -7,7 +7,7 @@ interface IUserProps {
   token: string
 }
 
-export const userState = atom<IUserProps | ''>({
+export const userState = atom<IUserProps>({
   key: '#userState',
-  default: '' || store.get('user'),
+  default: store.get('user') ? store.get('user') : { name: '', token: '' },
 })

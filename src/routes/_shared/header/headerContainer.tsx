@@ -3,6 +3,7 @@ import styles from './header.module.scss'
 import { ReactNode } from 'react'
 
 import { Classting } from 'assets/icons'
+import { NavLink } from 'react-router-dom'
 
 interface props {
   children: ReactNode
@@ -11,7 +12,9 @@ interface props {
 const HeaderContainer = ({ children }: props) => {
   return (
     <header className={styles.header}>
-      <Classting />
+      <NavLink to='/'>
+        <Classting />
+      </NavLink>
       {children}
     </header>
   )
