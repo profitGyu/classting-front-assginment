@@ -28,7 +28,7 @@
 2. 레포지토리 클론
 
 ```
-git clone git@https://github.com/silent10z/CatchTail.git
+git clone https://github.com/silent10z/classting-front-assginment.git
 ```
 
 3. dependencies 설치
@@ -60,7 +60,7 @@ yarn start
 [추가 구현]
 - [x] 정  오답에 대한 비율을 차트로 표기
 - [x] 다시 풀기
-- [] 오답 노트
+- [x] 오답 노트
 - [x] 퀴즈 종류 필터 기능 추가
 
 
