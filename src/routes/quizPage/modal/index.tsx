@@ -3,6 +3,7 @@ import styles from './modal.module.scss'
 import Button from 'components/Button'
 import { useSetRecoilState } from 'recoil'
 import { wrongAnswerListState } from 'state/quiz'
+import store from 'storejs'
 import { IQuizResult } from 'types/quiz'
 
 interface Props {
@@ -19,7 +20,10 @@ const QuizModal = ({ setIsOpenPopup, setPage, check, quiz }: Props) => {
     setIsOpenPopup(false)
     setPage((prev: number) => prev + 1)
     if (!check) {
-      setWrongAnswerList((pre) => [...pre, quiz])
+      setWrongAnswerList((pre) => {
+        store.set('wrongNote', [...pre, quiz])
+        return [...pre, quiz]
+      })
     }
   }
 
