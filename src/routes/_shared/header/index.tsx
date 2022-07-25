@@ -1,16 +1,23 @@
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useSetRecoilState } from 'recoil'
 import { userState } from 'state/user'
 
 import HeaderContainer from './headerContainer'
 
 import store from 'storejs'
+import { wrongAnswerListState } from 'state/quiz'
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
   const [user, setUser] = useRecoilState(userState)
+  const setWrongAnswer = useSetRecoilState(wrongAnswerListState)
+  const navigate = useNavigate()
 
   const handleOutClick = () => {
-    setUser({ name: '', token: '' })
     store.remove('user')
+    store.remove('wrongNote')
+    setUser({ name: '', token: '' })
+    setWrongAnswer([])
+    navigate(`../`, { replace: true })
   }
 
   if (user.name)
