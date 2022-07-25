@@ -9,11 +9,11 @@ const Header = () => {
   const [user, setUser] = useRecoilState(userState)
 
   const handleOutClick = () => {
-    setUser('')
+    setUser({ name: '', token: '' })
     store.remove('user')
   }
 
-  if (user)
+  if (user.name)
     return (
       <HeaderContainer>
         <ul>

@@ -1,6 +1,6 @@
 import styles from './quizPage.module.scss'
 
-import { useMemo, useState, MouseEvent } from 'react'
+import { useMemo, useState, MouseEvent, useEffect } from 'react'
 
 import { IQuizResult } from 'types/quiz'
 
@@ -8,6 +8,9 @@ import Button from 'components/Button'
 import Portal from 'components/modal/Portal'
 import { shuffle } from 'lodash'
 import Modal from 'components/modal'
+import useCount from 'hooks/useCount'
+import QuizResult from './quizResult'
+import { unescapeHtml } from 'utils'
 
 interface props {
   quiz: IQuizResult[]
@@ -18,6 +21,24 @@ const QuizGame = ({ quiz }: props) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isTrue, setIsTrue] = useState(true)
   const [rightCount, setRightCount] = useState(0)
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    const cnt = setInterval(() => {
+      setCount(count + 1)
+    }, 1000)
+    if (quiz.length === page + 1) {
+      clearInterval(cnt)
+    }
+    return () => clearInterval(cnt)
+  }, [count, page, quiz.length])
+
+  const question = useMemo(() => {
+    if (quiz[page]) {
+      return unescapeHtml(quiz[page].question)
+    }
+    return []
+  }, [page, quiz])
 
   const answerList = useMemo(() => {
     if (quiz[page]) {
@@ -34,10 +55,9 @@ const QuizGame = ({ quiz }: props) => {
     }
     setIsTrue(e.currentTarget.dataset.value === quiz[page].correct_answer)
     setIsModalOpen((prev) => !prev)
-    // setPage((prev) => prev + 1)
   }
 
-  if (quiz.length === page + 1) return <div>{rightCount}맞춤</div>
+  if (quiz.length === page + 1) return <QuizResult count={count} totalCount={quiz.length} rightCount={rightCount} />
 
   return (
     <div className={styles.quizContainer}>
@@ -45,7 +65,7 @@ const QuizGame = ({ quiz }: props) => {
         Question {page + 1} of {quiz.length}
       </h2>
       <section className={styles.questionContainer}>
-        <div className={styles.questionWrapper}>{quiz[page].question}</div>
+        <div className={styles.questionWrapper}>{question}</div>
       </section>
       {answerList.map((item, index) => {
         const answerKey = `answer-${index}-key`

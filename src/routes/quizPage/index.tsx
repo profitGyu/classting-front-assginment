@@ -20,9 +20,10 @@ const QuizPage = () => {
       info.token = user.token
       quizApiRep(info)
         .then((rep) => {
-          if (rep.data.response_code === 0) {
+          const code = rep.data.response_code
+          if (code === 0) {
             setQuiz(rep.data.results)
-          } else if (rep.data.response_code === 4) {
+          } else if (code === 4 || code === 3) {
             quizSessionRep().then((sRep) => {
               setUser({ name: user.name, token: sRep.data.token })
               store.set('user', {
@@ -31,10 +32,9 @@ const QuizPage = () => {
               })
             })
           } else {
-            SetIsError((prev) => !prev)
+            SetIsError(true)
           }
         })
-        // eslint-disable-next-line no-console
         .catch(() => SetIsError((prev) => !prev))
     }
   }, [info, setUser, user])
