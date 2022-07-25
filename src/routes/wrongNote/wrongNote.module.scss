@@ -10,7 +10,7 @@
     padding: 10px;
     margin-bottom: 8px;
     cursor: pointer;
-    background-color: colors.$PRIMARY;
+    background-color: colors.$NOTE_BACKGROUND;
     border-radius: 4px;
 
     summary {
@@ -19,9 +19,12 @@
 
     span {
       display: flex;
+      align-items: center;
       justify-content: center;
       width: 100%;
+      min-height: 50px;
       margin-top: 10px;
+      color: colors.$TEXT_WHITE;
       background: colors.$PRIMARY;
     }
   }

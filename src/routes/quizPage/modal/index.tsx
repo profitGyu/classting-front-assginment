@@ -21,6 +21,10 @@ const QuizModal = ({ setIsOpenPopup, setPage, check, quiz }: Props) => {
     setPage((prev: number) => prev + 1)
     if (!check) {
       setWrongAnswerList((pre) => {
+        if ([...pre].find((item) => quiz === item)) {
+          store.set('wrongNote', [...pre])
+          return [...pre]
+        }
         store.set('wrongNote', [...pre, quiz])
         return [...pre, quiz]
       })
