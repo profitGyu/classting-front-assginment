@@ -5,11 +5,11 @@ import { useMemo, useState, MouseEvent, useEffect } from 'react'
 import { IQuizResult } from 'types/quiz'
 
 import Button from 'components/Button'
-import Portal from 'routes/quizPage/modal/Portal'
 
-import QuizModal from 'routes/quizPage/modal'
+import QuizModal from 'routes/quizPage/quizModal'
 import QuizResult from './quizResult'
 import { shuffle, unescapeHtml } from 'utils'
+import Portal from 'components/Modal/Portal'
 
 interface props {
   quiz: IQuizResult[]

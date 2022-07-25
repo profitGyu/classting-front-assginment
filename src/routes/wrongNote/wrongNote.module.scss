@@ -15,6 +15,16 @@
 
     summary {
       display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      svg {
+        margin-top: 4px;
+      }
+
+      div {
+        width: 85%;
+      }
     }
 
     span {
@@ -23,9 +33,30 @@
       justify-content: center;
       width: 100%;
       min-height: 50px;
+      padding: 10px;
       margin-top: 10px;
       color: colors.$TEXT_WHITE;
       background: colors.$PRIMARY;
+    }
+  }
+
+  .noWrongNote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+    svg {
+      width: 100px;
+      height: 150px;
+    }
+
+    .noWrongNoteText {
+      font-size: 20px;
+      margin: 8px 0 20px;
     }
   }
 }
