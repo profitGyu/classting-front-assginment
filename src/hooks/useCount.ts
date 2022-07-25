@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import store from 'storejs'
 
 const useCount = () => {
   const [count, setCount] = useState(0)

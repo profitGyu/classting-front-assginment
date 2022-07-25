@@ -8,7 +8,8 @@
   height: 85px;
   padding: 20px 80px;
   background-color: colors.$PRIMARY;
-  border-radius: 30px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 
   a {
     cursor: pointer;

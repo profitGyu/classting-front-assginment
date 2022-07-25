@@ -3,6 +3,7 @@
 .layout {
   width: 100vw;
   height: 100vh;
+  background: #dee3f9;
 
   header {
     width: 375px;
@@ -11,7 +12,7 @@
 
   .main {
     width: 375px;
-    height: calc(100vh - 135px);
+    height: calc(100vh - 50px);
     margin: 0 auto;
     overflow-y: scroll;
     background: colors.$WHITE_BACKGROUND;

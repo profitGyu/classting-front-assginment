@@ -5,6 +5,7 @@ import { useSetRecoilState } from 'recoil'
 import { wrongAnswerListState } from 'state/quiz'
 import store from 'storejs'
 import { IQuizResult } from 'types/quiz'
+import { memo } from 'react'
 
 interface Props {
   setIsOpenPopup: Function
@@ -43,4 +44,4 @@ const QuizModal = ({ setIsOpenPopup, setPage, check, quiz }: Props) => {
   )
 }
 
-export default QuizModal
+export default memo(QuizModal)
